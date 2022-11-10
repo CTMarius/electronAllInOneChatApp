@@ -16,12 +16,13 @@
 
 .container {
     width: 100%;
-    top: 80%;   
+    top: 80%;
     border: 1px solid #eee;
     box-shadow: 0 2px 2px #ccc;
     display: flex;
-    background-color: rgba(255, 255, 255, .8);
+    background-color: rgb(192, 192, 192);
     overflow: hidden;
+    border-top: ridge 2px white;
 }
 
 #view {
@@ -48,6 +49,7 @@
     color: black;
     border: 2px solid #555555;
     font-family: monospace;
+    background-color: rgb(192, 192, 192);
 }
 
 #messenger {
@@ -64,6 +66,7 @@
     color: black;
     border: 2px solid #555555;
     font-family: monospace;
+    background-color: rgb(192, 192, 192);
 }
 
 #whatsapp {
@@ -80,6 +83,7 @@
     color: black;
     border: 2px solid #555555;
     font-family: monospace;
+    background-color: rgb(192, 192, 192);
 }
 
 #discord {
@@ -96,6 +100,7 @@
     color: black;
     border: 2px solid #555555;
     font-family: monospace;
+    background-color: rgb(192, 192, 192);
 }
 
 #innertext {
@@ -107,19 +112,23 @@
 }
 
 #skype:hover {
-    background-color: #4289BE;
+    background-color: rgb(0, 0, 128);
+    color: white;
 }
 
 #messenger:hover {
-    background-color: #4289BE;
+    background-color: rgb(0, 0, 128);
+    color: white;
 }
 
 #whatsapp:hover {
-    background-color: #4289BE;
+    background-color: rgb(0, 0, 128);
+    color: white;
 }
 
 #discord:hover {
-    background-color: #4289BE;
+    background-color: rgb(0, 0, 128);
+    color: white;
 }
 
 #skype:active {

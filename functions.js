@@ -11,8 +11,8 @@ const buttonPressed = async e => {
     console.log(e.target.id);
 
     if (e.target.id == 'skype') {
-       view.src = "https://web.skype.com/";
-       await view.src
+        view.src = "https://web.skype.com/";
+        await view.src
     } else if (e.target.id == 'messenger') {
         view.src = "https://messenger.com/";
         await view.src
