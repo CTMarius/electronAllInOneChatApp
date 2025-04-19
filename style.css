@@ -1,38 +1,128 @@
-.body {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 29.5em;
-    height: 8.6em;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 2px #ccc;
-    margin: 10px;
-    padding: 20px;
-    display: inline-block;
-    background-color: rgba(255, 255, 255, .8);
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #ffffff;
+    --accent-color: #0066ff;
+    --hover-color: #00cc88;
+    --button-text: #FFFFFF;
+    --button-bg: #333333;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --skype-color: #00AFF0;
+    --messenger-color: #0084FF;
+    --whatsapp-color: #25D366;
+    --discord-color: #5865F2;
+    --nav-bg: #2C2F33;
+    --hover-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
+body {
+    background-color: var(--secondary-color);
+}
+
+/* Remove the .body class as it's causing positioning issues */
+
 .container {
-    width: 100%;
-    top: 80%;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 2px #ccc;
     display: flex;
-    background-color: rgb(192, 192, 192);
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    border-top: ridge 2px white;
+}
+
+.chat-buttons {
+    display: flex;
+    padding: 1rem;
+    background-color: var(--nav-bg);
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 64px;
+    border-bottom: 1px solid var(--accent-color);
+}
+
+button {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: var(--button-text);
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    min-width: 120px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--hover-color);
+    transition: width 0.3s ease;
+}
+
+button:hover::after {
+    width: 100%;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.view-container {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    height: calc(100% - 64px);
+    display: flex;
+    min-height: 0; /* Important for nested flex containers */
 }
 
 #view {
-    height: 100%;
+    flex: 1;
     width: 100%;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 2px #ccc;
-    display: flex;
-    background-color: rgba(255, 255, 255, .8);
-    overflow: hidden;
+    height: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+webview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-flex !important;
 }
 
 #skype {
@@ -49,7 +139,7 @@
     color: black;
     border: 2px solid #555555;
     font-family: monospace;
-    background-color: rgb(192, 192, 192);
+    background-color: var(--skype-color);
 }
 
 #messenger {
@@ -66,7 +156,7 @@
     color: black;
     border: 2px solid #555555;
     font-family: monospace;
-    background-color: rgb(192, 192, 192);
+    background-color: var(--messenger-color);
 }
 
 #whatsapp {
@@ -83,7 +173,7 @@
     color: black;
     border: 2px solid #555555;
     font-family: monospace;
-    background-color: rgb(192, 192, 192);
+    background-color: var(--whatsapp-color);
 }
 
 #discord {
@@ -100,7 +190,7 @@
     color: black;
     border: 2px solid #555555;
     font-family: monospace;
-    background-color: rgb(192, 192, 192);
+    background-color: var(--discord-color);
 }
 
 #innertext {
@@ -145,4 +235,34 @@
 
 #discord:active {
     background-color: #3C99AA;
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .chat-buttons {
+        flex-wrap: wrap;
+    }
+    
+    button {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
 }

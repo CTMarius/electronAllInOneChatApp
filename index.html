@@ -1,27 +1,41 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Radio Player</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self'">
+    <title>All-In-One Chat App</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="main.js"></script>
 </head>
 <body>
-    <div class="container">
-        <button id="skype">
-            <div>Skype</div>
-        </button>
-        <button id="messenger">
-            <div>Messenger</div>
-        </button>
-        <button id="whatsapp">
-            <div>Whatsapp</div>
-        </button>
-        <button id="discord">
-            <div>Discord</div>
-        </button>
-    </div>
-    <div>
-        <webview id="view" class="page" src="" autosize="on"></webview>
-    </div>
-    <script src="functions.js"></script>
+    <main class="container">
+        <nav class="chat-buttons">
+            <button id="skype" aria-label="Open Skype">
+                <span>Skype</span>
+            </button>
+            <button id="messenger" aria-label="Open Messenger">
+                <span>Messenger</span>
+            </button>
+            <button id="whatsapp" aria-label="Open WhatsApp">
+                <span>WhatsApp</span>
+            </button>
+            <button id="discord" aria-label="Open Discord">
+                <span>Discord</span>
+            </button>
+        </nav>
+        <section class="view-container">
+            <webview 
+                id="view" 
+                src="about:blank" 
+                allowpopups 
+                nodeintegration="true"
+                plugins 
+                disablewebsecurity
+                partition="persist:general"
+            ></webview>
+        </section>
+    </main>
+    
+    <script src="functions.js" defer></script>
 </body>
 </html>
